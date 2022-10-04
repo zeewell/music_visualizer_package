@@ -68,7 +68,9 @@ class _VisualComponentState extends State<VisualComponent> with SingleTickerProv
   }
 
   void update() {
-    if (mounted) setState(() {});
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      if (mounted) setState(() {});
+    });
   }
 
   @override
